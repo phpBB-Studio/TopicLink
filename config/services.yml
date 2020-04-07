@@ -1,0 +1,9 @@
+services:
+    phpbbstudio.tlink.listener:
+        class: phpbbstudio\tlink\event\main
+        arguments:
+            - '@auth'
+            - '@language'
+            - '@request'
+        tags:
+            - { name: event.listener }
