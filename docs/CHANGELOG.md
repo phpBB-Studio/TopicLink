@@ -1,5 +1,8 @@
 # phpBB Studio - Topic Link
 
+#### v1.0.4-RC on 2020-07-07
+- Removed number of Replies and Views from viewforum topic list
+
 #### v1.0.3-beta on 2020-04-07
 - First public release
 

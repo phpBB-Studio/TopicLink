@@ -10,7 +10,7 @@
 2. Unzip the downloaded release and copy it to the `ext` directory of your phpBB board.
 3. Navigate in the ***<abbr title="Administration Control Panel">ACP</abbr>*** to `Customise » Extension management » Manage extensions`.
 4. Look for `phpBB Studio - Topic Link` under the **Disabled Extensions** list, and click its **`Enable`** link.
-5. Set up and configure `Topic Link` by navigating in the ***<abbr title="Administration Control Panel">ACP</abbr>*** to `Board configuration » Post settings`.
+5. Set up and configure `Topic Link` by navigating in the ***<abbr title="Administration Control Panel">ACP</abbr>*** to `Permissions » Global Permissions`.
 
 > *Read more about [installing phpBB Extensions](https://www.phpbb.com/extensions/installing/#installing).*
 

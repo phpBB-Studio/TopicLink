@@ -73,7 +73,7 @@ class main implements EventSubscriberInterface
 	}
 
 	/**
-	 * Add permissions to the "ACP / Permissions settings" page.
+	 * Add permissions to the "ACP / Permissions settings" page
 	 *
 	 * @event core.permissions
 	 * @param \phpbb\event\data		$event		The event object
@@ -152,7 +152,7 @@ class main implements EventSubscriberInterface
 	}
 
 	/**
-	 * Add the tlink to the post data.
+	 * Add the tlink to the post data
 	 *
 	 * @event core.posting_modify_submit_post_before
 	 * @param \phpbb\event\data	$event		The event object
@@ -174,7 +174,7 @@ class main implements EventSubscriberInterface
 	}
 
 	/**
-	 * Add the tlink to the topic's SQL data.
+	 * Add the tlink to the topic's SQL data
 	 *
 	 * @event core.submit_post_modify_sql_data
 	 * @param \phpbb\event\data	$event		The event object
@@ -215,6 +215,7 @@ class main implements EventSubscriberInterface
 	/**
 	 * Use tlink on topic title in viewforum
 	 *
+	 * @event core.viewforum_modify_topicrow
 	 * @param \phpbb\event\data	$event	Event object
 	 * @return void
 	 */
@@ -222,8 +223,17 @@ class main implements EventSubscriberInterface
 	{
 		if ($event['row']['tlink'] != '')
 		{
-			$event->update_subarray('topic_row', 'U_VIEW_TOPIC', $event['row']['tlink']);
-			$event->update_subarray('topic_row', 'TOPIC_IMG_STYLE', 'forum_link');
+			$tpl_array = [
+				'U_VIEW_TOPIC'		=> $event['row']['tlink'],
+				'TOPIC_IMG_STYLE'	=> 'forum_link',
+				'VIEWS'				=> '',
+				'REPLIES'			=> '',
+			];
+
+			foreach ($tpl_array as $key => $value)
+			{
+				$event->update_subarray('topic_row', $key, $value);
+			}
 
 			/* If not authed for edit make the last post URL as tlink */
 			if (!$this->auth->acl_get('u_phpbbstudio_tlink'))
@@ -280,7 +290,7 @@ class main implements EventSubscriberInterface
 	}
 
 	/**
-	 * Do not show last post subject in forums if not authorized.
+	 * Do not show last post subject in forums if not authorized
 	 *
 	 * @event core.display_forums_modify_template_vars
 	 * @param \phpbb\event\data	$event		The event object
@@ -295,7 +305,7 @@ class main implements EventSubscriberInterface
 	}
 
 	/**
-	 * Alter the search results for if not authorized.
+	 * Alter the search results for not authorized users
 	 *
 	 * @event  core.search_modify_tpl_ary
 	 * @param  \phpbb\event\data	$event		The event object
