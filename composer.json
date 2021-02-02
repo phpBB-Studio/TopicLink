@@ -3,7 +3,7 @@
 	"type": "phpbb-extension",
 	"description": "Topic links",
 	"homepage": "https://www.phpbbstudio.com",
-	"version": "1.0.4-RC",
+	"version": "1.0.5-RC",
 	"time": "2020-07-07",
 	"license": "GPL-2.0-only",
 	"authors": [

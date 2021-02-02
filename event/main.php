@@ -145,7 +145,7 @@ class main implements EventSubscriberInterface
 		if ($mode == 'post' || ($mode == 'edit' && $post_data['topic_first_post_id'] == $post_data['post_id']))
 		{
 			$page_data['TOPIC_LINK']	= $this->request->variable('tlink', $post_data['tlink'], true);
-			$page_data['S_TOPIC_LINK']	= true;
+			$page_data['S_TOPIC_LINK']	= (bool) $this->auth->acl_get('u_phpbbstudio_tlink');
 		}
 
 		$event['page_data']	= $page_data;
